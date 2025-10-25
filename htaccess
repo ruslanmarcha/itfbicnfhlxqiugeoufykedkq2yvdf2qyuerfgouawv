@@ -29,8 +29,8 @@ RewriteRule ^home/$ page37554111.html [NC]
 RewriteRule ^docs$ page37555543.html [NC]
 RewriteRule ^docs/$ page37555543.html [NC]
 
-RewriteRule ^feedback$ page37557605.html [NC]
-RewriteRule ^feedback/$ page37557605.html [NC]
+RewriteRule ^page37557605.html$ page37557605.html [NC]
+RewriteRule ^page37557605.html/$ page37557605.html [NC]
 
 RewriteRule ^redirect$ page37557616.html [NC]
 RewriteRule ^redirect/$ page37557616.html [NC]
@@ -50,32 +50,32 @@ RewriteRule ^error/$ page37555452.html [NC]
 RewriteRule ^plans$ page37555750.html [NC]
 RewriteRule ^plans/$ page37555750.html [NC]
 
-RewriteRule ^plans/standart$ page37556179.html [NC]
-RewriteRule ^plans/standart/$ page37556179.html [NC]
+RewriteRule ^page37556179.html$ page37556179.html [NC]
+RewriteRule ^page37556179.html/$ page37556179.html [NC]
 
-RewriteRule ^plans/premium$ page37556180.html [NC]
-RewriteRule ^plans/premium/$ page37556180.html [NC]
+RewriteRule ^page37556180.html$ page37556180.html [NC]
+RewriteRule ^page37556180.html/$ page37556180.html [NC]
 
-RewriteRule ^plans/pro$ page37555879.html [NC]
-RewriteRule ^plans/pro/$ page37555879.html [NC]
+RewriteRule ^page37555879.html$ page37555879.html [NC]
+RewriteRule ^page37555879.html/$ page37555879.html [NC]
 
-RewriteRule ^plans/year$ page37556177.html [NC]
-RewriteRule ^plans/year/$ page37556177.html [NC]
+RewriteRule ^page37556177.html$ page37556177.html [NC]
+RewriteRule ^page37556177.html/$ page37556177.html [NC]
 
-RewriteRule ^thatsall$ page37557609.html [NC]
-RewriteRule ^thatsall/$ page37557609.html [NC]
+RewriteRule ^page37557609.html$ page37557609.html [NC]
+RewriteRule ^page37557609.html/$ page37557609.html [NC]
 
-RewriteRule ^thatsall/activate$ page51122937.html [NC]
-RewriteRule ^thatsall/activate/$ page51122937.html [NC]
+RewriteRule ^page37557609.html/activate$ page51122937.html [NC]
+RewriteRule ^page37557609.html/activate/$ page51122937.html [NC]
 
-RewriteRule ^plans/premiumlite$ page69438705.html [NC]
-RewriteRule ^plans/premiumlite/$ page69438705.html [NC]
+RewriteRule ^page37556180.htmllite$ page69438705.html [NC]
+RewriteRule ^page37556180.htmllite/$ page69438705.html [NC]
 
 RewriteRule ^plans/business$ page69441585.html [NC]
 RewriteRule ^plans/business/$ page69441585.html [NC]
 
-RewriteRule ^help$ page37557067.html [NC]
-RewriteRule ^help/$ page37557067.html [NC]
+RewriteRule ^page37557067.html$ page37557067.html [NC]
+RewriteRule ^page37557067.html/$ page37557067.html [NC]
 
 RewriteRule ^plans/extrapass$ page73751381.html [NC]
 RewriteRule ^plans/extrapass/$ page73751381.html [NC]
