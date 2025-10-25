@@ -68,17 +68,17 @@ RewriteRule ^page37557609.html/$ page37557609.html [NC]
 RewriteRule ^page37557609.html/activate$ page51122937.html [NC]
 RewriteRule ^page37557609.html/activate/$ page51122937.html [NC]
 
-RewriteRule ^page37556180.htmllite$ page69438705.html [NC]
-RewriteRule ^page37556180.htmllite/$ page69438705.html [NC]
+RewriteRule ^page69438705.html$ page69438705.html [NC]
+RewriteRule ^page69438705.html/$ page69438705.html [NC]
 
-RewriteRule ^plans/business$ page69441585.html [NC]
-RewriteRule ^plans/business/$ page69441585.html [NC]
+RewriteRule ^page69441585.html$ page69441585.html [NC]
+RewriteRule ^page69441585.html/$ page69441585.html [NC]
 
 RewriteRule ^page37557067.html$ page37557067.html [NC]
 RewriteRule ^page37557067.html/$ page37557067.html [NC]
 
-RewriteRule ^plans/extrapass$ page73751381.html [NC]
-RewriteRule ^plans/extrapass/$ page73751381.html [NC]
+RewriteRule ^page73751381.html$ page73751381.html [NC]
+RewriteRule ^page73751381.html/$ page73751381.html [NC]
 
 RewriteRule ^ref$ page37557607.html [NC]
 RewriteRule ^ref/$ page37557607.html [NC]
