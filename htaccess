@@ -1,0 +1,92 @@
+ErrorDocument 403 /page37555452.html
+ErrorDocument 404 /page37555452.html
+
+DirectoryIndex page37554111.html
+
+AuthType Basic
+AuthName "Restricted Area"
+AuthUserFile /var/www/tilda/data/www/tilda.ws/.htpasswd
+require valid-user
+Order deny,allow
+Deny from all
+Satisfy any
+RewriteRule ^ - [co=nocache:true:.:1:/]
+
+RewriteEngine On
+
+RewriteCond %{HTTP:X-Forwarded-Proto} =http
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} /robots.txt
+RewriteCond "%{DOCUMENT_ROOT}/robots_%{HTTP_HOST}.txt" -f
+RewriteRule ^(.*)$ robots_%{HTTP_HOST}.txt [NC,L]
+RewriteRule ^happy/ins$ page73862407.html [NC]
+RewriteRule ^happy/ins/$ page73862407.html [NC]
+
+RewriteRule ^home$ page37554111.html [NC]
+RewriteRule ^home/$ page37554111.html [NC]
+
+RewriteRule ^docs$ page37555543.html [NC]
+RewriteRule ^docs/$ page37555543.html [NC]
+
+RewriteRule ^feedback$ page37557605.html [NC]
+RewriteRule ^feedback/$ page37557605.html [NC]
+
+RewriteRule ^redirect$ page37557616.html [NC]
+RewriteRule ^redirect/$ page37557616.html [NC]
+
+RewriteRule ^ai$ page68187345.html [NC]
+RewriteRule ^ai/$ page68187345.html [NC]
+
+RewriteRule ^header$ page37554441.html [NC]
+RewriteRule ^header/$ page37554441.html [NC]
+
+RewriteRule ^footer$ page37555379.html [NC]
+RewriteRule ^footer/$ page37555379.html [NC]
+
+RewriteRule ^error$ page37555452.html [NC]
+RewriteRule ^error/$ page37555452.html [NC]
+
+RewriteRule ^plans$ page37555750.html [NC]
+RewriteRule ^plans/$ page37555750.html [NC]
+
+RewriteRule ^plans/standart$ page37556179.html [NC]
+RewriteRule ^plans/standart/$ page37556179.html [NC]
+
+RewriteRule ^plans/premium$ page37556180.html [NC]
+RewriteRule ^plans/premium/$ page37556180.html [NC]
+
+RewriteRule ^plans/pro$ page37555879.html [NC]
+RewriteRule ^plans/pro/$ page37555879.html [NC]
+
+RewriteRule ^plans/year$ page37556177.html [NC]
+RewriteRule ^plans/year/$ page37556177.html [NC]
+
+RewriteRule ^thatsall$ page37557609.html [NC]
+RewriteRule ^thatsall/$ page37557609.html [NC]
+
+RewriteRule ^thatsall/activate$ page51122937.html [NC]
+RewriteRule ^thatsall/activate/$ page51122937.html [NC]
+
+RewriteRule ^plans/premiumlite$ page69438705.html [NC]
+RewriteRule ^plans/premiumlite/$ page69438705.html [NC]
+
+RewriteRule ^plans/business$ page69441585.html [NC]
+RewriteRule ^plans/business/$ page69441585.html [NC]
+
+RewriteRule ^help$ page37557067.html [NC]
+RewriteRule ^help/$ page37557067.html [NC]
+
+RewriteRule ^plans/extrapass$ page73751381.html [NC]
+RewriteRule ^plans/extrapass/$ page73751381.html [NC]
+
+RewriteRule ^ref$ page37557607.html [NC]
+RewriteRule ^ref/$ page37557607.html [NC]
+
+RewriteRule ^app$ page37557611.html [NC]
+RewriteRule ^app/$ page37557611.html [NC]
+
+RewriteRule ^plans/differences$ page73846967.html [NC]
+RewriteRule ^plans/differences/$ page73846967.html [NC]
+
+
