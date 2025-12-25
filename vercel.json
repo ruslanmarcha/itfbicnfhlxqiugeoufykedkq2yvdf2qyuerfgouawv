@@ -1,0 +1,10 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/page37554111.html" },
+    { "source": "/plans", "destination": "/page37555750.html" },
+    { "source": "/apps", "destination": "/page37557611.html" },
+    { "source": "/support", "destination": "/page37557067.html" }
+  ]
+}
