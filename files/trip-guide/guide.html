@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<title>Moskova & St. Petersburg — 6 Gün</title>
+<style>
+  @font-face {
+    font-family: "Syne";
+    src: url("fonts/Syne.ttf") format("truetype");
+    font-weight: 400 800;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "DM Sans";
+    src: url("fonts/DMSans.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Instrument Serif";
+    src: url("fonts/InstrumentSerif-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Instrument Serif";
+    src: url("fonts/InstrumentSerif-Italic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  :root {
+    --ink: #14181f;
+    --muted: #5a6570;
+    --line: #d5dbe1;
+    --paper: #f2f4f6;
+    --white: #fafbfc;
+    --msk: #c44b2f;
+    --msk-soft: #f6e8e3;
+    --spb: #1f6f6a;
+    --spb-soft: #e3f0ef;
+    --sand: #e8e4dc;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  html, body {
+    background: #ddd;
+    color: var(--ink);
+    font-family: "DM Sans", sans-serif;
+    font-weight: 400;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    page-break-after: always;
+    break-after: page;
+    position: relative;
+    overflow: hidden;
+    background: var(--paper);
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ——— COVER ——— */
+  .cover {
+    background:
+      radial-gradient(ellipse 80% 55% at 85% 15%, rgba(196,75,47,.22), transparent 55%),
+      radial-gradient(ellipse 70% 50% at 10% 90%, rgba(31,111,106,.28), transparent 50%),
+      linear-gradient(165deg, #1a222c 0%, #12161c 45%, #0e2a28 100%);
+    color: #f4f2ed;
+    padding: 18mm 16mm;
+    display: flex;
+    flex-direction: column;
+  }
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 9pt;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    opacity: .72;
+    font-weight: 500;
+  }
+  .cover-badge {
+    border: 1px solid rgba(244,242,237,.35);
+    padding: 6px 12px;
+    border-radius: 2px;
+    letter-spacing: .14em;
+  }
+  .cover-hero {
+    margin-top: auto;
+    margin-bottom: 8mm;
+  }
+  .cover-kicker {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: 16pt;
+    color: #e8b4a4;
+    margin-bottom: 6mm;
+  }
+  .cover h1 {
+    font-family: "Syne", sans-serif;
+    font-weight: 800;
+    font-size: 54pt;
+    line-height: .92;
+    letter-spacing: -.03em;
+  }
+  .cover h1 .amp {
+    display: block;
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 28pt;
+    letter-spacing: 0;
+    color: #8fd0c8;
+    margin: 3mm 0;
+  }
+  .cover-rule {
+    width: 42mm;
+    height: 3px;
+    background: linear-gradient(90deg, var(--msk), var(--spb));
+    margin: 8mm 0 6mm;
+  }
+  .cover-sub {
+    font-size: 12.5pt;
+    line-height: 1.45;
+    max-width: 130mm;
+    color: rgba(244,242,237,.82);
+  }
+  .cover-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4mm;
+    margin-top: 14mm;
+    padding-top: 6mm;
+    border-top: 1px solid rgba(244,242,237,.18);
+  }
+  .cover-stat .n {
+    font-family: "Syne", sans-serif;
+    font-weight: 700;
+    font-size: 22pt;
+    letter-spacing: -.02em;
+  }
+  .cover-stat .l {
+    font-size: 8.5pt;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    opacity: .6;
+    margin-top: 1.5mm;
+  }
+  .cover-geo {
+    position: absolute;
+    right: -20mm;
+    top: 55mm;
+    width: 120mm;
+    height: 120mm;
+    border: 1px solid rgba(244,242,237,.08);
+    border-radius: 50%;
+  }
+  .cover-geo::before {
+    content: "";
+    position: absolute;
+    inset: 18mm;
+    border: 1px solid rgba(244,242,237,.1);
+    border-radius: 50%;
+  }
+
+  /* ——— INTRO ——— */
+  .inner { padding: 16mm 16mm 14mm; }
+  .eyebrow {
+    font-size: 8.5pt;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 4mm;
+  }
+  .page-title {
+    font-family: "Syne", sans-serif;
+    font-weight: 800;
+    font-size: 28pt;
+    letter-spacing: -.025em;
+    line-height: 1.05;
+    margin-bottom: 3mm;
+  }
+  .lede {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: 14pt;
+    color: var(--muted);
+    max-width: 150mm;
+    line-height: 1.4;
+    margin-bottom: 8mm;
+  }
+  .tips {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+  }
+  .tip {
+    background: var(--white);
+    border: 1px solid #dde2e7;
+    padding: 5mm 5mm 4.5mm;
+    border-radius: 2px;
+  }
+  .tip .num {
+    font-family: "Syne", sans-serif;
+    font-weight: 700;
+    font-size: 11pt;
+    color: var(--msk);
+    margin-bottom: 2mm;
+  }
+  .tip h3 {
+    font-family: "Syne", sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    margin-bottom: 2mm;
+  }
+  .tip p {
+    font-size: 9.5pt;
+    line-height: 1.4;
+    color: var(--muted);
+  }
+  .split-cities {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin-top: 8mm;
+  }
+  .city-card {
+    padding: 6mm;
+    border-radius: 2px;
+    min-height: 42mm;
+  }
+  .city-card.msk { background: var(--msk); color: #fff; }
+  .city-card.spb { background: var(--spb); color: #fff; }
+  .city-card .label {
+    font-size: 8pt;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    opacity: .75;
+    margin-bottom: 3mm;
+  }
+  .city-card h3 {
+    font-family: "Syne", sans-serif;
+    font-size: 18pt;
+    font-weight: 800;
+    margin-bottom: 2mm;
+  }
+  .city-card p {
+    font-size: 9.5pt;
+    line-height: 1.4;
+    opacity: .9;
+  }
+
+  /* ——— CITY CHAPTER ——— */
+  .chapter {
+    display: grid;
+    grid-template-rows: 72mm 1fr;
+  }
+  .chapter-hero {
+    padding: 16mm 16mm 10mm;
+    position: relative;
+    color: #fff;
+  }
+  .chapter-hero.msk {
+    background:
+      linear-gradient(135deg, #9e3a24 0%, #c44b2f 55%, #d86a3f 100%);
+  }
+  .chapter-hero.spb {
+    background:
+      linear-gradient(135deg, #154e4a 0%, #1f6f6a 55%, #2a8f88 100%);
+  }
+  .chapter-hero .city-label {
+    font-size: 9pt;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    opacity: .8;
+  }
+  .chapter-hero h1 {
+    font-family: "Syne", sans-serif;
+    font-weight: 800;
+    font-size: 42pt;
+    letter-spacing: -.03em;
+    margin: 3mm 0 3mm;
+    line-height: .95;
+  }
+  .chapter-hero .desc {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: 13pt;
+    max-width: 130mm;
+    opacity: .92;
+  }
+  .chapter-hero .days-pill {
+    position: absolute;
+    right: 16mm;
+    bottom: 12mm;
+    font-family: "Syne", sans-serif;
+    font-weight: 800;
+    font-size: 48pt;
+    line-height: 1;
+    opacity: .25;
+  }
+  .chapter-body {
+    padding: 8mm 16mm 12mm;
+  }
+  .must-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5mm;
+  }
+  .must-item {
+    background: var(--white);
+    border-left: 3px solid var(--accent, var(--msk));
+    padding: 4mm 4.5mm;
+  }
+  .chapter.msk-ch { --accent: var(--msk); }
+  .chapter.spb-ch { --accent: var(--spb); }
+  .must-item strong {
+    display: block;
+    font-family: "Syne", sans-serif;
+    font-size: 10.5pt;
+    font-weight: 700;
+    margin-bottom: 1.5mm;
+  }
+  .must-item span {
+    font-size: 9pt;
+    color: var(--muted);
+    line-height: 1.35;
+  }
+
+  /* ——— DAY PAGE ——— */
+  .day-page { padding: 14mm 15mm 12mm; }
+  .day-head {
+    display: grid;
+    grid-template-columns: 28mm 1fr;
+    gap: 5mm;
+    align-items: end;
+    margin-bottom: 7mm;
+    padding-bottom: 5mm;
+    border-bottom: 2px solid var(--ink);
+  }
+  .day-num {
+    font-family: "Syne", sans-serif;
+    font-weight: 800;
+    font-size: 48pt;
+    line-height: .85;
+    letter-spacing: -.04em;
+    color: var(--day-accent, var(--msk));
+  }
+  .day-meta .city {
+    font-size: 8.5pt;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .day-meta h2 {
+    font-family: "Syne", sans-serif;
+    font-weight: 800;
+    font-size: 20pt;
+    letter-spacing: -.02em;
+    margin-top: 1.5mm;
+    line-height: 1.1;
+  }
+  .day-meta .tagline {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: 11.5pt;
+    color: var(--muted);
+    margin-top: 1.5mm;
+  }
+
+  .spot {
+    display: grid;
+    grid-template-columns: 8mm 1fr;
+    gap: 3mm;
+    margin-bottom: 5.5mm;
+    page-break-inside: avoid;
+  }
+  .spot-mark {
+    width: 7mm;
+    height: 7mm;
+    border-radius: 50%;
+    background: var(--day-accent, var(--msk));
+    color: #fff;
+    font-family: "Syne", sans-serif;
+    font-weight: 700;
+    font-size: 8.5pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1mm;
+  }
+  .spot h3 {
+    font-family: "Syne", sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    letter-spacing: -.01em;
+    margin-bottom: 1.5mm;
+  }
+  .spot p {
+    font-size: 9.6pt;
+    line-height: 1.42;
+    color: #3a434c;
+    margin-bottom: 2mm;
+  }
+  .maps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2mm;
+  }
+  .map-link {
+    font-size: 7.8pt;
+    font-weight: 600;
+    letter-spacing: .02em;
+    color: var(--day-accent, var(--msk));
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--day-accent, var(--msk)) 45%, transparent);
+    padding-bottom: .5px;
+  }
+
+  .evening-band {
+    margin-top: 2mm;
+    background: var(--band-bg, var(--msk-soft));
+    padding: 5mm 5.5mm;
+    border-radius: 2px;
+  }
+  .evening-band .label {
+    font-size: 8pt;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--day-accent, var(--msk));
+    margin-bottom: 2mm;
+  }
+  .evening-band h3 {
+    font-family: "Syne", sans-serif;
+    font-size: 12pt;
+    font-weight: 700;
+    margin-bottom: 1.5mm;
+  }
+  .evening-band p {
+    font-size: 9.5pt;
+    line-height: 1.4;
+    color: #3a434c;
+    margin-bottom: 2mm;
+  }
+
+  /* ——— CLOSING ——— */
+  .close {
+    background:
+      linear-gradient(180deg, #f2f4f6 0%, #e8ecef 100%);
+  }
+  .table-wrap {
+    margin-top: 4mm;
+    border: 1px solid #d0d6dc;
+    background: var(--white);
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 32mm 1fr;
+    border-bottom: 1px solid #e1e5ea;
+  }
+  .row:last-child { border-bottom: 0; }
+  .row .c {
+    padding: 4.5mm 4mm;
+    font-family: "Syne", sans-serif;
+    font-weight: 800;
+    font-size: 11pt;
+    color: #fff;
+  }
+  .row.msk-r .c { background: var(--msk); }
+  .row.spb-r .c { background: var(--spb); }
+  .row .v {
+    padding: 4.5mm 5mm;
+    font-size: 9.8pt;
+    line-height: 1.4;
+    color: #333b44;
+  }
+  .footer-note {
+    margin-top: 10mm;
+    padding-top: 5mm;
+    border-top: 1px solid #cfd5db;
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: 12pt;
+    color: var(--muted);
+    text-align: center;
+  }
+  .page-num {
+    position: absolute;
+    bottom: 8mm;
+    right: 16mm;
+    font-size: 8pt;
+    letter-spacing: .12em;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .cover .page-num { display: none; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="page cover">
+  <div class="cover-geo"></div>
+  <div class="cover-top">
+    <span>İlk Rusya · 22 yaş vibe</span>
+    <span class="cover-badge">6 Gün Rehber</span>
+  </div>
+  <div class="cover-hero">
+    <div class="cover-kicker">Yerel gibi gez — müze minimum</div>
+    <h1>
+      MOSKOVA
+      <span class="amp">&amp;</span>
+      ST. PETERSBURG
+    </h1>
+    <div class="cover-rule"></div>
+    <p class="cover-sub">
+      Modern şehir hayatı, bar semtleri, parklar, sahiller ve
+      yerel gençlerin gerçekten gittiği noktalar. Harita linkleriyle.
+    </p>
+  </div>
+  <div class="cover-bottom">
+    <div class="cover-stat">
+      <div class="n">3+3</div>
+      <div class="l">Gün planı</div>
+    </div>
+    <div class="cover-stat">
+      <div class="n">18+</div>
+      <div class="l">Nokta</div>
+    </div>
+    <div class="cover-stat">
+      <div class="n">Maps</div>
+      <div class="l">Linkli rota</div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="page">
+  <div class="inner">
+    <div class="eyebrow">Nasıl kullanılır</div>
+    <h1 class="page-title">Şehri<br>checklist gibi değil,<br>hisset.</h1>
+    <p class="lede">
+      Bu rehber turistik “mutlaka görülmeli” listesi değil — Moskova ve Petersburg’da
+      yerel gençlerin yaşadığı yerlerin kısa, net haritası.
+    </p>
+    <div class="tips">
+      <div class="tip">
+        <div class="num">01</div>
+        <h3>Metro = deneyim</h3>
+        <p>Moskova metrosu başlı başına gezi. Mayakovskaya, Komsomolskaya, Novoslobodskaya’ya bak.</p>
+      </div>
+      <div class="tip">
+        <div class="num">02</div>
+        <h3>Petersburg yürüyerek</h3>
+        <p>Şehir sahillerden ve köprülerden açılır. Mümkün olduğunca yürüyün / scooter.</p>
+      </div>
+      <div class="tip">
+        <div class="num">03</div>
+        <h3>Yemek</h3>
+        <p>Dürüm/döner kültürü ayrı; bir de Gürcü mutfağı, Asya ve wine bar’lar deneyin.</p>
+      </div>
+      <div class="tip">
+        <div class="num">04</div>
+        <h3>Ödeme & dil</h3>
+        <p>Kart / SBP; nakit bazen işe yarar. Offline Google Translate şart. Gençler İngilizce anlar.</p>
+      </div>
+    </div>
+    <div class="split-cities">
+      <div class="city-card msk">
+        <div class="label">Bölüm 01</div>
+        <h3>Moskova</h3>
+        <p>Tempo, parklar, Kitay-gorod geceleri, büyük şehir enerjisi.</p>
+      </div>
+      <div class="city-card spb">
+        <div class="label">Bölüm 02</div>
+        <h3>St. Petersburg</h3>
+        <p>Neva, Yeni Hollanda, Sevkabel, bar caddeleri, açılan köprüler.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num">02</div>
+</section>
+
+<!-- MOSCOW CHAPTER -->
+<section class="page chapter msk-ch">
+  <div class="chapter-hero msk">
+    <div class="city-label">Bölüm 01 · Rusya’nın temposu</div>
+    <h1>MOSKOVA</h1>
+    <p class="desc">Üç gün: merkez → parklar → büyük şehir. Müze değil, atmosfer.</p>
+    <div class="days-pill">3G</div>
+  </div>
+  <div class="chapter-body">
+    <div class="eyebrow" style="margin-bottom:4mm">Kısa must listesi</div>
+    <div class="must-grid">
+      <div class="must-item"><strong>Zaryadye</strong><span>Uçan köprü + Kremlin manzarası</span></div>
+      <div class="must-item"><strong>Gorki / sahil</strong><span>Yerel yaşamın ana sahnesi</span></div>
+      <div class="must-item"><strong>Kitay-gorod</strong><span>Akşam bar + avlu enerjisi</span></div>
+      <div class="must-item"><strong>VDNKh / Design Zavod</strong><span>Büyük ölçek veya yaratıcı küme</span></div>
+      <div class="must-item"><strong>GES-2</strong><span>Eski santral, modern alan</span></div>
+      <div class="must-item"><strong>Vorobyovy Gory</strong><span>Ücretsiz en iyi şehir manzarası</span></div>
+    </div>
+  </div>
+  <div class="page-num">03</div>
+</section>
+
+<!-- MSK DAY 1 -->
+<section class="page day-page" style="--day-accent:#c44b2f; --band-bg:#f6e8e3">
+  <div class="day-head">
+    <div class="day-num">01</div>
+    <div class="day-meta">
+      <div class="city">Moskova · Gün 1</div>
+      <h2>Merkez, ama checklist değil</h2>
+      <div class="tagline">Şehri hissedip akşama bar semtine kaymak</div>
+    </div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-mark">1</div>
+    <div>
+      <h3>Kızıl Meydan + Zaryadye</h3>
+      <p>Meydanı hızlıca gör — “Moskova’dayım” hissi için. Sonra hemen Zaryadye Park’a geç: uçan köprü, Kremlin ve nehir manzarası, modern peyzaj.</p>
+      <div class="maps">
+        <a class="map-link" href="https://yandex.ru/maps/-/CLuFiI~c">Yandex · Kızıl Meydan</a>
+        <a class="map-link" href="https://yandex.ru/maps/-/CLuFiX~n">Yandex · Zaryadye</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-mark">2</div>
+    <div>
+      <h3>Nikolskaya / Kuznetsky Most</h3>
+      <p>Merkezde yürüyüş: vitrinler, kalabalık, kahve, büyük şehir hissi. Alışveriş değil — tempo yakalamak için.</p>
+      <div class="maps">
+        <a class="map-link" href="https://yandex.ru/maps/-/CLuFiZ~k">Yandex · Nikolskaya</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="evening-band">
+    <div class="label">Akşam</div>
+    <h3>Ivanovskaya Gorka / Kitay-gorod</h3>
+    <p>Şu an gençlerin ana buluşma noktası: barlar, avlular, Pokrovka–Maroseyka–Solyanka hattı. Yerel gençler Patriki’den daha çok buraya geliyor.</p>
+    <div class="maps">
+      <a class="map-link" href="https://yandex.ru/maps/-/CLuFia~B">Yandex · Pokrovka</a>
+      <a class="map-link" href="https://yandex.ru/maps/-/CLuFib~n">Yandex · Khokhlovskaya (“Yama”)</a>
+    </div>
+  </div>
+  <div class="page-num">04</div>
+</section>
+
+<!-- MSK DAY 2 -->
+<section class="page day-page" style="--day-accent:#c44b2f; --band-bg:#f6e8e3">
+  <div class="day-head">
+    <div class="day-num">02</div>
+    <div class="day-meta">
+      <div class="city">Moskova · Gün 2</div>
+      <h2>Parklar + yaratıcı alanlar</h2>
+      <div class="tagline">Nehir kenarı, mimari, stil bir akşam</div>
+    </div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-mark">1</div>
+    <div>
+      <h3>Gorki Parkı + Muzeon + Kırım Sahili</h3>
+      <p>Yerel yaşamın klasiği: sahil, kaykaycılar, yemek, nehir kenarında yürüyüş. Müze günü değil — şehrin içinde yaşamak.</p>
+      <div class="maps">
+        <a class="map-link" href="https://yandex.ru/maps/org/park_gorkogo/1080487655/">Yandex · Gorki Parkı</a>
+        <a class="map-link" href="https://yandex.ru/maps/org/muzeon/1124715036/">Yandex · Muzeon</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-mark">2</div>
+    <div>
+      <h3>GES-2</h3>
+      <p>Eski elektrik santrali → süper modern kamusal alan: mimari, avlu, kafeler, bazen etkinlikler. Müzeye değil, güzel bir mekâna girer gibi düşün.</p>
+      <div class="maps">
+        <a class="map-link" href="https://yandex.ru/maps/org/ges_2/1738872409/">Yandex · GES-2</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="evening-band">
+    <div class="label">Akşam</div>
+    <h3>Patriarshiye Prudy</h3>
+    <p>Daha “stil” bir semt: akşam yemeği, bar, yürüyüş. Daha hareketli istersen Kitay-gorod’a dön.</p>
+    <div class="maps">
+      <a class="map-link" href="https://yandex.ru/maps/org/patriarshiye_prudy/1118253887/">Yandex · Patriarshiye Prudy</a>
+    </div>
+  </div>
+  <div class="page-num">05</div>
+</section>
+
+<!-- MSK DAY 3 -->
+<section class="page day-page" style="--day-accent:#c44b2f; --band-bg:#f6e8e3">
+  <div class="day-head">
+    <div class="day-num">03</div>
+    <div class="day-meta">
+      <div class="city">Moskova · Gün 3</div>
+      <h2>Büyük Moskova + yerel vibe</h2>
+      <div class="tagline">Ölçek, yaratıcılık ve wow manzara</div>
+    </div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-mark">1</div>
+    <div>
+      <h3>VDNKh</h3>
+      <p>“Sovyet müzesi” değil, dev bir park: pavyonlar, fıskiyeler, yemek; scooter kiralayabilirsin. Yazın özellikle iyi.</p>
+      <div class="maps">
+        <a class="map-link" href="https://yandex.ru/maps/org/vdnkh/1118253886/">Yandex · VDNKh</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-mark">2</div>
+    <div>
+      <h3>veya Design Zavod (Dmitrovskaya)</h3>
+      <p>Yaratıcı küme: mağazalar, yemek, etkinlikler, endüstriyel hava. Yerel gençlerin gittiği yer.</p>
+      <div class="maps">
+        <a class="map-link" href="https://yandex.ru/maps/-/CLuFic~k">Yandex · Design Zavod</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-mark">3</div>
+    <div>
+      <h3>Bonus: Vorobyovy Gory</h3>
+      <p>Zaman kalırsa — şehrin en iyi ücretsiz manzarası. Gün batımına yakın efsane.</p>
+      <div class="maps">
+        <a class="map-link" href="https://yandex.ru/maps/org/vorobyovy_gory/1118253888/">Yandex · Vorobyovy Gory</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="evening-band">
+    <div class="label">Akşam</div>
+    <h3>Çatı / manzaralı bar</h3>
+    <p>Seçenekler: Kitay-gorod barları veya wow fotoğraf için Moskova-City seyir terası.</p>
+    <div class="maps">
+      <a class="map-link" href="https://yandex.ru/maps/org/moskva_siti/1382013409/">Yandex · Moskova-City</a>
+    </div>
+  </div>
+  <div class="page-num">06</div>
+</section>
+
+<!-- SPB CHAPTER -->
+<section class="page chapter spb-ch">
+  <div class="chapter-hero spb">
+    <div class="city-label">Bölüm 02 · Kuzeyin havası</div>
+    <h1>ST. PETERSBURG</h1>
+    <p class="desc">Üç gün: klasik eksen → yerel adalar → manzara ve köprüler.</p>
+    <div class="days-pill">3G</div>
+  </div>
+  <div class="chapter-body">
+    <div class="eyebrow" style="margin-bottom:4mm">Kısa must listesi</div>
+    <div class="must-grid">
+      <div class="must-item"><strong>Saray Meydanı + Neva</strong><span>Klasik giriş, dışarıdan yeterli</span></div>
+      <div class="must-item"><strong>Yeni Hollanda</strong><span>Yazın yerel lifestyle merkezi</span></div>
+      <div class="must-item"><strong>Sevkabel Port</strong><span>Körfez, barlar, gün batımı</span></div>
+      <div class="must-item"><strong>Rubinshteyna</strong><span>Ana bar caddesi</span></div>
+      <div class="must-item"><strong>Petrogradskaya</strong><span>Daha az turistik, daha canlı</span></div>
+      <div class="must-item"><strong>Açılan köprüler</strong><span>Gece şart — Neva’dan izle</span></div>
+    </div>
+  </div>
+  <div class="page-num">07</div>
+</section>
+
+<!-- SPB DAY 1 -->
+<section class="page day-page" style="--day-accent:#1f6f6a; --band-bg:#e3f0ef">
+  <div class="day-head">
+    <div class="day-num">01</div>
+    <div class="day-meta">
+      <div class="city">St. Petersburg · Gün 1</div>
+      <h2>Klasikler + canlı merkez</h2>
+      <div class="tagline">Şehri tanı, akşamı bar caddesinde bitir</div>
+    </div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-mark">1</div>
+    <div>
+      <h3>Saray Meydanı + Neva</h3>
+      <p>Hızlıca: Hermitage dışarıdan, Admiralty kulesi, köprü. Müzenin içine sadece gerçekten istiyorsa gir.</p>
+      <div class="maps">
+        <a class="map-link" href="https://yandex.ru/maps/org/dvortsovaya_ploshchad/1387461831/">Yandex · Saray Meydanı</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-mark">2</div>
+    <div>
+      <h3>Nevsky → Kazan → Griboyedov Kanalı</h3>
+      <p>Şehrin ana aksı: cadde, köprüler, Kanlı Kilise’nin dışı için fotoğraf. İçeride saat harcama.</p>
+      <div class="maps">
+        <a class="map-link" href="https://yandex.ru/maps/org/khram_spasa_na_krovi/1068857346/">Yandex · Kanlı Kilise</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="evening-band">
+    <div class="label">Akşam</div>
+    <h3>Rubinshteyna Caddesi</h3>
+    <p>Petersburg’un ana bar caddesi. Yereller de turistler de burada. Birkaç mekâna uğrayıp temposunu yakala.</p>
+    <div class="maps">
+      <a class="map-link" href="https://yandex.ru/maps/-/CLuFid~B">Yandex · Rubinshteyna</a>
+    </div>
+  </div>
+  <div class="page-num">08</div>
+</section>
+
+<!-- SPB DAY 2 -->
+<section class="page day-page" style="--day-accent:#1f6f6a; --band-bg:#e3f0ef">
+  <div class="day-head">
+    <div class="day-num">02</div>
+    <div class="day-meta">
+      <div class="city">St. Petersburg · Gün 2</div>
+      <h2>Petersburg’luların sevdiği yerler</h2>
+      <div class="tagline">Ada + körfez — şehrin modern yüzü</div>
+    </div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-mark">1</div>
+    <div>
+      <h3>Yeni Hollanda (Novaya Gollandiya)</h3>
+      <p>Merkezde ada: çim, yemek, müzik, insanlar. Yazın mutlaka. Turistik “tik” değil, gerçek lifestyle.</p>
+      <div class="maps">
+        <a class="map-link" href="https://yandex.ru/maps/org/novaya_gollandiya/1018852155/">Yandex · Yeni Hollanda</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-mark">2</div>
+    <div>
+      <h3>Sevkabel Port</h3>
+      <p>Finlandiya Körfezi kenarında eski fabrika: sahil, barlar, konserler, gün batımı. Çok “modern Petersburg”.</p>
+      <div class="maps">
+        <a class="map-link" href="https://yandex.ru/maps/org/sevkabel_port/105313507204/">Yandex · Sevkabel Port</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="evening-band">
+    <div class="label">Akşam</div>
+    <h3>Sevkabel’de kal veya merkeze dön</h3>
+    <p>Körfezde gün batımı + bar, ya da Rubinshteyna / Vosstaniya / Zhukovskogo hattına geri dön.</p>
+  </div>
+  <div class="page-num">09</div>
+</section>
+
+<!-- SPB DAY 3 -->
+<section class="page day-page" style="--day-accent:#1f6f6a; --band-bg:#e3f0ef">
+  <div class="day-head">
+    <div class="day-num">03</div>
+    <div class="day-meta">
+      <div class="city">St. Petersburg · Gün 3</div>
+      <h2>Manzaralar + başka semt</h2>
+      <div class="tagline">Petrogradskaya, çatılar, açılan köprüler</div>
+    </div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-mark">1</div>
+    <div>
+      <h3>Petrogradskaya tarafı</h3>
+      <p>Daha az turistik, daha canlı: Art Nouveau, avlular, kahveler, Kamennoostrovsky. Yerel yürüyüş rotası.</p>
+      <div class="maps">
+        <a class="map-link" href="https://yandex.ru/maps/-/CLuFie~n">Yandex · Petrogradskaya</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-mark">2</div>
+    <div>
+      <h3>Vasilyevsky Adası burnu (Strelka)</h3>
+      <p>Rostral kolonlar, Neva ve Kışlık Saray manzarası — şehrin en iyi açıları.</p>
+      <div class="maps">
+        <a class="map-link" href="https://yandex.ru/maps/org/strelka_vasilyevskogo_ostrova/1382013410/">Yandex · Strelka V.O.</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-mark">3</div>
+    <div>
+      <h3>Çatı / seyir terası</h3>
+      <p>Petersburg çatıları ayrı bir kültür. Yasal seçenekler: Etazhi, Sky&amp;Garden vb. (önceden bakmak iyi olur).</p>
+      <div class="maps">
+        <a class="map-link" href="https://yandex.ru/maps/org/loft_proyekt_etazhi/1066191823/">Yandex · Loft Project Etazhi</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="evening-band">
+    <div class="label">Gece</div>
+    <h3>Köprülerin açılması</h3>
+    <p>Gece şehirdeyse mutlaka. Neva / Saray Köprüsü / Troitsky tarafından izle — Petersburg’un en sinematik anı.</p>
+    <div class="maps">
+      <a class="map-link" href="https://yandex.ru/maps/org/dvortsovy_most/1049587425/">Yandex · Saray Köprüsü</a>
+    </div>
+  </div>
+  <div class="page-num">10</div>
+</section>
+
+<!-- CLOSING -->
+<section class="page close">
+  <div class="inner">
+    <div class="eyebrow">Özet</div>
+    <h1 class="page-title">Altı güne<br>sığan öz.</h1>
+    <p class="lede">Kaçırma listesi — gerisi doğaçlama.</p>
+
+    <div class="table-wrap">
+      <div class="row msk-r">
+        <div class="c">Moskova</div>
+        <div class="v">Zaryadye · Gorki Parkı / sahil · akşam Kitay-gorod · VDNKh veya Design Zavod · Vorobyovy Gory manzarası</div>
+      </div>
+      <div class="row spb-r">
+        <div class="c">Petersburg</div>
+        <div class="v">Saray Meydanı + Neva · Yeni Hollanda · Sevkabel · Rubinshteyna · köprülerin açılması</div>
+      </div>
+    </div>
+
+    <div class="tips" style="margin-top:8mm">
+      <div class="tip">
+        <div class="num">NOT</div>
+        <h3>Harita linkleri</h3>
+        <p>PDF’deki mavi/turuncu linkler Yandex Maps’e gider. Telefonda açıp “yol tarifi” diyebilirsin.</p>
+      </div>
+      <div class="tip">
+        <div class="num">NOT</div>
+        <h3>Esnek tut</h3>
+        <p>Hava / enerji / yeni tanıdıklar planı bozabilir — bozsun. En iyi günler genelde doğaçlama olur.</p>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      İyi yolculuklar — Moskova temposu, Petersburg ruhu.
+    </div>
+  </div>
+  <div class="page-num">11</div>
+</section>
+
+</body>
+</html>
